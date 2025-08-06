@@ -1,84 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
-
+import Botao from '../components/Botao';
+import Header from '../components/Header';
 
 function Home() {
-//   const [isLogin, setIsLogin] = useState(true);
-//   const [showPassword, setShowPassword] = useState(false);
-//   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-//   const [formData, setFormData] = useState({
-//     fullName: '',
-//     phone: '',
-//     email: '',
-//     password: '',
-//     confirmPassword: ''
-//   });
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [status, setStatus] = useState('')
+  const [turmas, setTurmas] = useState([])
 
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target
-//     setFormData(prev => ({ ...prev, [name]: value }))
-//   }
+  useEffect(() => {
+    const buscarTurmas = async () => {
+      const { data, error } = await supabase
+        .from('turma') // corrigido aqui
+        .select('*')
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault()
-//     setIsLoading(true)
+      if (error) {
+        console.error('Erro ao buscar turmas:', error)
+      } else {
+        setTurmas(data)
+      }
+    }
 
-//     if (!isLogin) {
-//       if (formData.password !== formData.confirmPassword) {
-//         setStatus('As senhas não coincidem')
-//         setIsLoading(false)
-//         return
-//       }
-
-//       const { data, error } = await supabase
-//         .from('aluno')
-//         .insert([{
-//           nome: formData.fullName,
-//           email: formData.email,
-//           telefone: formData.phone,
-//           password_hash: formData.password
-//         }])
-
-//       if (error) {
-//         console.error(error)
-//         setStatus('Erro ao criar conta')
-//       } else {
-//         setStatus('Conta criada com sucesso!')
-//         setFormData({
-//           fullName: '',
-//           phone: '',
-//           email: '',
-//           password: '',
-//           confirmPassword: ''
-//         })
-//       }
-//     } else {
-//       // LOGIN
-//       const { email, password } = formData
-
-//       const { data, error } = await supabase
-//         .from('aluno')
-//         .select('*')
-//         .eq('email', email)
-//         .eq('password_hash', password)
-//         .single()
-
-//       if (error || !data) {
-//         setStatus('Email ou senha incorretos')
-//       } else {
-//         setStatus('Login bem-sucedido!')
-//         console.log('Usuário logado:', data)
-//       }
-//     }
-
-//     setIsLoading(false)
-//   }
+    buscarTurmas()
+  }, [])
 
   return (
-    <h1>Hello Mundo</h1>
-  );
+    <div>
+      <Header />
+      <div className="table">
+        <h2>Bem-vindo!</h2>
+        <h2>Turmas Cadastradas</h2>
+        <div className="turmas-grid">
+          {turmas.length === 0 ? (
+            <p>Nenhuma turma cadastrada.</p>
+          ) : (
+            turmas.map((turma) => (
+              <div key={turma.id_turma} className="turma-card">
+                <h3>{turma.nometurma}</h3>
+                <p>ID do Professor: {turma.id_professor}</p>
+                <button onClick={() => deletarTurma(turma.id_turma)}>🗑️</button>
+              </div>
+            ))
+          )}
+        </div>  
+      </div>
+    </div>
+  )
 }
 
-export default Home;
+export default Home

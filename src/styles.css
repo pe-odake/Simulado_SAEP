@@ -1,0 +1,9 @@
+/* COMPONENTE - BOTAO */
+
+.botao{
+    background-color: rgb(19, 235, 255);
+    height: 4.5vh;
+    width: 9vw;
+    border: blue 1px solid;
+    border-radius: 10px;
+}

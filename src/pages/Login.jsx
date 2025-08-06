@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { supabase } from '../supabaseClient';
 import '../App.css'
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+
+  const navigate = useNavigate();
+
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -13,6 +17,7 @@ function Login() {
     password: '',
     confirmPassword: ''
   });
+  
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState('') 
 
@@ -70,6 +75,7 @@ function Login() {
       } else {
         setStatus('Login bem-sucedido!')
         console.log('Usuário logado:', data)
+        navigate('/home'); 
       }
     }
 
