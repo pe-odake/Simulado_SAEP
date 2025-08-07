@@ -1,0 +1,66 @@
+/* Estilo geral do header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f8ff; /* azul claro */
+  padding: 12px 24px;
+  border-bottom: 2px solid #cce0f5;
+  font-family: Arial, sans-serif;
+}
+
+/* Logo e título */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#logo_img {
+  width: 32px;
+  height: 32px;
+}
+
+#logo {
+  font-weight: bold;
+  font-size: 18px;
+  color: #003366;
+}
+
+/* Navegação de páginas */
+.pages {
+  display: flex;
+  gap: 20px;
+}
+
+#pages {
+  font-size: 16px;
+  color: #003366;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+#pages:hover {
+  background-color: #e6f2ff; /* azul mais claro no hover */
+}
+
+/* Ícone de conta */
+.conta img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #1e90ff; /* azul forte */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conteudo{
+    display: flex;
+}
+
+#logo_img{
+  border-radius: 50%;
+}
