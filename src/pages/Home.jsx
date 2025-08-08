@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
-// import Botao from '../components/Botao';
+import Botao from '../components/Botao';
 import Header from '../components/Header';
 import '../css/home.css';
 
@@ -62,9 +62,9 @@ function Home() {
             </div>
 
             <div className="botoes">
-              <button>Adicionar Turma</button>
-              <button>Editar Turma</button>
-              <button>Remover Turma</button>
+              <Botao texto='Adicionar Turma' />
+              <Botao texto='Editar Turma' />
+              <Botao texto='Remover Turma' />
             </div>
           </div>
         </div>
@@ -74,3 +74,7 @@ function Home() {
 }
 
 export default Home
+
+// onClick={alert('teste')}
+// onClick={alert('teste')}
+// onClick={alert('teste')}

@@ -1,9 +1,10 @@
 import React from 'react';
-import '../styles.css'
+// import '../styles.css'
 
-function Botao({ texto, onClick }) {
+// , onClick   onClick={onClick}
+function Botao({ texto}){
   return (
-    <button onClick={onClick} className='botao'>
+    <button className='botao'>
       {texto}
     </button>
   );
