@@ -36,14 +36,16 @@
 #pages {
   font-size: 16px;
   color: #003366;
+  background-color: #f0f8ff;
   cursor: pointer;
   padding: 6px 12px;
   border-radius: 8px;
   transition: background-color 0.3s;
+  border: none;
 }
 
 #pages:hover {
-  background-color: #e6f2ff; /* azul mais claro no hover */
+  background-color: #aed3fb; /* azul mais claro no hover */
 }
 
 /* Ícone de conta */

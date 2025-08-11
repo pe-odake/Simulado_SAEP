@@ -1,8 +1,9 @@
 import React from 'react';
 // import '../styles.css'
 
-// , onClick   onClick={onClick}
-function Botao({ texto}){
+
+
+function Botao({texto}){
   return (
     <button className='botao'>
       {texto}

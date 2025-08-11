@@ -3,19 +3,3 @@
 *{
     font-family: 'lato';
 }
-
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    width: 40%;
-    background-color: rgb(0, 255, 255);
-    flex-direction: column;
-}

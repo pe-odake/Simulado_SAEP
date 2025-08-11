@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #f0f8ff; /* fundo azul clarinho */
+  padding: 20px;
+}
+
+.form {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.form h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+.form form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #003366;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #cce0f5;
+  border-radius: 8px;
+  background-color: #f0f8ff;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form input:focus {
+  border-color: #3399ff;
+  box-shadow: 0 0 5px rgba(51,153,255,0.3);
+}
+
+.form button {
+  background-color: #e6f2ff;
+  color: #003366;
+  border-radius: 8px;
+  border: 1px #003366 solid;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form button:hover {
+  background-color: #d0e7ff;
+}
+
+.form p {
+  text-align: center;
+  margin-top: 10px;
+  color: #003366;
+}
+
+.form > div:last-child {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.form > div:last-child button {
+  background-color: transparent;
+  border: none;
+  color: #003366;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.form > div:last-child button:hover {
+  color: #0055aa;
+}

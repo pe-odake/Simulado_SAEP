@@ -31,42 +31,8 @@ function Home() {
           <h2>Bem-vindo!</h2>
           <h2>Turmas Cadastradas</h2>
           
-          <div className="conteudo">
-            <div className="table-area">
-              <table id='tabela_turmas'>
-                <thead>
-                  <tr>
-                    <th>ID Turma</th>
-                    <th>Nome da Turma</th>
-                    <th>Ano</th>
-                    <th>Periodo</th>
-                    <th>ID Professor</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {turmas.length === 0 ? (
-                    <tr><td colSpan="5">Nenhuma turma cadastrada.</td></tr>
-                  ) : (
-                    turmas.map((turma) => (
-                      <tr key={turma.id_turma} className="turma-card">
-                        <td>{turma.id_turma}</td>
-                        <td>{turma.nometurma}</td>
-                        <td>{turma.ano}</td>
-                        <td>{turma.periodo}</td>
-                        <td>ID do Professor: {turma.id_professor}</td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
-            </div>
+          <p>Gerencie suas turmas de forma fácil e rápida.</p>
 
-            <div className="botoes">
-              <Botao texto='Adicionar Turma' />
-              <Botao texto='Editar Turma' />
-              <Botao texto='Remover Turma' />
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -74,7 +40,3 @@ function Home() {
 }
 
 export default Home
-
-// onClick={alert('teste')}
-// onClick={alert('teste')}
-// onClick={alert('teste')}

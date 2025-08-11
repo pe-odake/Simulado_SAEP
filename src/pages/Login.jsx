@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { supabase } from '../supabaseClient';
-import '../App.css'
+// import '../App.css'
+import '../css/login.css'
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -12,7 +13,6 @@ function Login() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
-    phone: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -38,13 +38,13 @@ function Login() {
       }
 
       const { data, error } = await supabase
-        .from('aluno')
+        .from('professor')
         .insert([{
           nome: formData.fullName,
           email: formData.email,
-          telefone: formData.phone,
-          password_hash: formData.password
-        }])
+          senha: formData.password // usar 'senha'
+        }]);
+
 
       if (error) {
         console.error(error)
@@ -53,7 +53,6 @@ function Login() {
         setStatus('Conta criada com sucesso!')
         setFormData({
           fullName: '',
-          phone: '',
           email: '',
           password: '',
           confirmPassword: ''
@@ -64,11 +63,11 @@ function Login() {
       const { email, password } = formData
 
       const { data, error } = await supabase
-        .from('aluno')
+        .from('professor')
         .select('*')
         .eq('email', email)
-        .eq('password_hash', password)
-        .single()
+        .eq('senha', password)
+        .single();
 
       if (error || !data) {
         setStatus('Email ou senha incorretos')
@@ -97,16 +96,6 @@ function Login() {
                   value={formData.fullName}
                   onChange={handleInputChange}
                   required
-                />
-              </div>
-
-              <div>
-                <label>Telefone</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
                 />
               </div>
             </>
